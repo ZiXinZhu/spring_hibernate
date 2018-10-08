@@ -1,6 +1,7 @@
 package com.zzx.conteoller;
 
 import com.zzx.entity.GoodsEntity;
+import com.zzx.listenerfilterintercept.inter.Permission;
 import com.zzx.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,9 @@ public class UserController {
     }
 
     @RequestMapping("/save")
-    public void save(GoodsEntity entity){
+    @Permission(isPath = true)
+    public String save(GoodsEntity entity){
         service.save(entity);
+        return "index.jsp";
     }
 }

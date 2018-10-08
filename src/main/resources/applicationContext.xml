@@ -13,17 +13,31 @@
     <context:component-scan base-package="com.zzx"/>
 
     <!-- step：2 don't handle the static resource -->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
     <!-- step：3 if you use annotation you must configure following setting -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
+    <bean id="listener" class="com.zzx.listenerfilterintercept.Listener">
+        <property name="tokenCheckRequired">
+            <value>true</value>
+        </property>
+        <property name="tokenExpireMin">
+            <value>60</value>
+        </property>
+        <property name="tokenKeyLength">
+            <value>6</value>
+        </property>
+        <property name="loginURL">
+            <value>/user/login</value>
+        </property>
+    </bean>
+    <bean id="myFilter" class="com.zzx.listenerfilterintercept.MyFilter">
+        <property name="tokenCheckRequired">
+            <value>true</value>
+        </property>
+        <property name="loginURL">
+            <value>/user/login</value>
+        </property>
+    </bean>
 
-    <!-- configure the InternalResourceViewResolver -->
-   <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          id="internalResourceViewResolver">
-        &lt;!&ndash; 前缀 &ndash;&gt;
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        &lt;!&ndash; 后缀 &ndash;&gt;
-        <property name="suffix" value=".jsp" />
-    </bean>-->
 </beans>

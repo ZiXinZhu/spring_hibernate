@@ -8,6 +8,23 @@
     <param-value>classpath*:applicationContext.xml</param-value>
   </context-param>
 
+  <filter>
+    <filter-name>MyFiter</filter-name>
+    <filter-class>com.zzx.listenerfilterintercept.MyFilter</filter-class>
+    <init-param><!--初始化过滤器参数-->
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>MyFiter</filter-name>
+    <url-pattern>/hello</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>com.zzx.listenerfilterintercept.Listener</listener-class>
+  </listener>
+
   <!--configure the setting of springmvcDispatcherServlet and configure the mapping-->
   <servlet>
     <servlet-name>hibernate</servlet-name>
