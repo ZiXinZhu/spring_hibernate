@@ -23,7 +23,7 @@ public class UserDao {
         sessionFactory = configuration.buildSessionFactory();//创建会话工厂
         session = sessionFactory.openSession();//开启会话
         transaction = session.beginTransaction();//开启事务
-        session.save(entity);
+        session.update(entity);
         transaction.commit();//事务提交
         session.close();//关闭会话
         sessionFactory.close();//关闭会话工厂
