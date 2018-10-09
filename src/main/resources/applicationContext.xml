@@ -33,6 +33,7 @@
     <!-- step：3 if you use annotation you must configure following setting -->
     <mvc:annotation-driven/>
 
+    <!--listener属性注入-->
     <bean id="listener" class="com.zzx.listenerfilterintercept.Listener">
         <property name="tokenCheckRequired">
             <value>true</value>
@@ -47,6 +48,8 @@
             <value>/user/login</value>
         </property>
     </bean>
+
+    <!--myFilter-->
     <bean id="myFilter" class="com.zzx.listenerfilterintercept.MyFilter">
         <property name="tokenCheckRequired">
             <value>true</value>
