@@ -6,6 +6,7 @@ import com.zzx.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by Mr.John on 2018/9/17 16:02.
@@ -18,13 +19,13 @@ public class UserController {
 
     @RequestMapping("/hello")
     public String hello(){
-        return "index.jsp";
+        return "index";
     }
 
     @RequestMapping("/save")
     @Permission(isPath = true)
-    public String save(GoodsEntity entity){
+    public ModelAndView save(GoodsEntity entity){
         service.save(entity);
-        return "index";
+        return new ModelAndView( "index");
     }
 }
