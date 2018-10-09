@@ -25,6 +25,6 @@ public class UserController {
     @Permission(isPath = true)
     public String save(GoodsEntity entity){
         service.save(entity);
-        return "index.jsp";
+        return "index";
     }
 }

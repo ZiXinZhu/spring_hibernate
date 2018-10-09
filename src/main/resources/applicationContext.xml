@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
@@ -12,11 +12,27 @@
     <!-- step：1 scan the package and the sub package -->
     <context:component-scan base-package="com.zzx"/>
 
+    <!--可配可不配-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/page/" p:suffix=".jsp"/>
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <mvc:interceptor>
+            <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+            <bean class="com.zzx.listenerfilterintercept.inter.MyInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- step：2 don't handle the static resource -->
     <mvc:default-servlet-handler/>
 
     <!-- step：3 if you use annotation you must configure following setting -->
     <mvc:annotation-driven/>
+
     <bean id="listener" class="com.zzx.listenerfilterintercept.Listener">
         <property name="tokenCheckRequired">
             <value>true</value>
