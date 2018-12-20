@@ -14,7 +14,7 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
     <!--  mysql连接URL  -->
-    <property name="connection.url">jdbc:mysql://123.207.231.159:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8</property>
+    <property name="connection.url">jdbc:mysql://123.207.231.159:3306/hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>
 
     <!--  数据库方言  -->
     <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
