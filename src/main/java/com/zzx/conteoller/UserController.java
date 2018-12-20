@@ -19,7 +19,7 @@ public class UserController {
 
     @RequestMapping("/hello")
     public String hello(){
-        return "index";
+        return "404";
     }
 
     @RequestMapping("/save")

@@ -57,7 +57,7 @@ public class MyFilter extends HttpServlet implements Filter {
         //登录验证
         if ((b == null) || (b.equals(false))) {
             System.out.println("禁止进入！");
-            response.sendRedirect("log.html");
+            response.sendRedirect("page/404.html");
             return;
             //跳转路径为返回上一级，由js做
         } else if (b.equals(true)) {
