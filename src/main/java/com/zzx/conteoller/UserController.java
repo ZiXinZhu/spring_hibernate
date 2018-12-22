@@ -39,7 +39,6 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/all")
     public List<UserEntity> all(){
-        System.out.println(goodsDao.all());
-        return goodsDao.all();
+        return service.all();
     }
 }

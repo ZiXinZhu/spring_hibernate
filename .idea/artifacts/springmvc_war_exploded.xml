@@ -41,6 +41,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.7" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.22" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache:1.6.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
